@@ -1,3 +1,61 @@
+public List<Integer> findDuplicates(int[] nums) {
+        // Optimal Approach
+    List<Integer> list = new ArrayList<>();
+        // nums = [4,3,2,7,8,2,3,1]
+          int n = nums.length;
+        // aux array
+        int freq[] = new int[n + 1];
+        
+        // -->
+//         i                0   1   2   3   4   5   6   7
+              
+//         nums[i]          4
+//         freq[nums[i]]    0   0   0   0   1   0   0   0   0
+              
+//         nums[i]          4   3
+//         freq[nums[i]]    0   0   0   1   1   0   0   0   0
+              
+//         nums[i]          4   3   2    
+//         freq[nums[i]]    0   0   1   1   1   0   0   0   0
+
+//         nums[i]          4   3   2   7 
+//         freq[nums[i]]    0   0   1   1   1   0   0   1   0
+              
+//         nums[i]          4   3   2   7   8
+//         freq[nums[i]]    0   0   1   1   1   0   0   1   1
+              
+//         nums[i]          4   3   2   7   8   2
+//         freq[nums[i]]    0   0   2   1   1   0   0   1   1
+              
+//         nums[i]          4   3   2   7   8   2   3
+//         freq[nums[i]]    0   0   2   2   1   0   0   1   1
+              
+//         nums[i]          4   3   2   7   8   2   3   1
+//         freq[nums[i]]    0   1   2   2   1   0   0   1   1
+        for (int i = 0; i < n; i++) {
+            
+                freq[nums[i]] += 1;
+           
+        }
+        
+        //         0   1   2   3   4   5   6   7   8
+        // freq = [0   1   2   2   1   0   0   1   1]
+        //             list.add(2)
+        //             list.add(3)
+        
+         for (int i = 0; i < n+1; i++) {
+            if(freq[i]>1){
+                list.add(i);}
+           
+        }
+        if(list.isEmpty()) list.add(-1);
+
+        return list;
+}
+
+
+
+
 // import java.util.* ;
 // import java.io.*; 
 // import java.util.ArrayList;
