@@ -17,7 +17,7 @@
                     if(s.charAt(i)==s.charAt(j)){
                             i++;
                             j--;
-                    }else{
+                    }else{  // try skipping current ith and jth element one by one and again check similarly for rest of the string.
                             return isPalindrome(s,i+1,j) || isPalindrome(s,i,j-1);
                     }
             }
