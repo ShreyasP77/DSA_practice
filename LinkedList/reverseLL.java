@@ -49,14 +49,7 @@ class Solution {
         return res;
     }
         
-    ListNode reverse(ListNode cur, ListNode prev){
-        
 
-        ListNode temp = cur.next;
-        cur.next = prev;
-        return reverse(temp,cur);
-        
-    }
               
 //         Initail setup.
 //          head
